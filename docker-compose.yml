@@ -1,0 +1,39 @@
+services:
+    hadoop-master:
+        image: hadoop-cluster:3.4.1
+        ports:
+            - "9870:9870"
+            - "8088:8088"
+        volumes:
+            - ../../apps/first_spark_application:/opt/workspace/apps
+            - ../../data:/opt/workspace/data
+        environment:
+            - WORKLOAD=master
+            - SPARK_WORKER_DIR=/opt/workspace
+    hadoop-worker-a:
+        image: hadoop-cluster:3.4.1
+        depends_on:
+            - hadoop-master
+        environment:
+            - WORKLOAD=worker
+        volumes:
+            - ../../apps/first_spark_application:/opt/workspace/apps
+            - ../../data:/opt/workspace/data
+    hadoop-worker-b:
+        image: hadoop-cluster:3.4.1
+        depends_on:
+            - hadoop-master
+        environment:
+            - WORKLOAD=worker
+        volumes:
+            - ../../apps/first_spark_application:/opt/workspace/apps
+            - ../../data:/opt/workspace/data
+    hadoop-worker-c:
+        image: hadoop-cluster:3.4.1
+        depends_on:
+            - hadoop-master
+        environment:
+            - WORKLOAD=worker
+        volumes:
+            - ../../apps/first_spark_application:/opt/workspace/apps
+            - ../../data:/opt/workspace/data
