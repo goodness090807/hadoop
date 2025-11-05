@@ -1,5 +1,4 @@
-FROM openjdk:11-jre-slim-bullseye AS builder
-
+FROM openjdk:11.0.16-jre-slim-bullseye AS builder
 
 ENV PYTHONHASHSEED=1 \
 PYTHON_VERSION=3.12.8

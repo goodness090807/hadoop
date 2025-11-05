@@ -35,7 +35,7 @@
 
     <property>
         <name>yarn.resourcemanager.hostname</name>
-        <value>hadoop-master</value>
+        <value>master</value>
     </property>
 
     <!--    Configurations for NodeManager:-->
